@@ -29,8 +29,7 @@ const applyTheme = (theme) => {
 };
 
 const savedTheme = localStorage.getItem(THEME_KEY);
-const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+const initialTheme = savedTheme || 'light';
 applyTheme(initialTheme);
 
 if (themeToggle) {
