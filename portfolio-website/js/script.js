@@ -2,12 +2,31 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const navAnchors = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('main section[id]');
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const hashNavAnchors = Array.from(navAnchors).filter((anchor) => anchor.getAttribute('href')?.startsWith('#'));
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
 }
+
+navAnchors.forEach((anchor) => {
+  anchor.addEventListener('click', () => {
+    if (navLinks) {
+      navLinks.classList.remove('open');
+    }
+  });
+});
+
+navAnchors.forEach((anchor) => {
+  const href = anchor.getAttribute('href') || '';
+  const linkPage = href.split('#')[0] || 'index.html';
+
+  if (linkPage && !href.startsWith('#') && linkPage === currentPage) {
+    anchor.classList.add('active');
+  }
+});
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', (event) => {
@@ -37,23 +56,25 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-window.addEventListener('scroll', () => {
-  let currentSection = '';
+if (hashNavAnchors.length > 0 && currentPage === 'index.html') {
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 140;
-    if (window.scrollY >= sectionTop) {
-      currentSection = section.getAttribute('id');
-    }
-  });
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 140;
+      if (window.scrollY >= sectionTop) {
+        currentSection = section.getAttribute('id');
+      }
+    });
 
-  navAnchors.forEach((anchor) => {
-    anchor.classList.remove('active');
-    if (anchor.getAttribute('href') === `#${currentSection}`) {
-      anchor.classList.add('active');
-    }
+    hashNavAnchors.forEach((anchor) => {
+      anchor.classList.remove('active');
+      if (anchor.getAttribute('href') === `#${currentSection}`) {
+        anchor.classList.add('active');
+      }
+    });
   });
-});
+}
 
 const revealElements = document.querySelectorAll('.reveal');
 

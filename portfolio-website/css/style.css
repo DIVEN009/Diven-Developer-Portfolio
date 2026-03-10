@@ -992,6 +992,12 @@ a {
   }
 }
 
+@media (max-width: 768px) {
+  .section {
+    padding: 50px 20px;
+  }
+}
+
 @media (max-width: 580px) {
   .tech-grid,
   .tech-categories,
