@@ -417,12 +417,10 @@
             </div>
           </div>
 
-          <form class="card contact-form reveal" action="https://formsubmit.co/sainidiven@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_subject" value="New portfolio contact enquiry" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_honey" value="" />
-            <input type="hidden" name="_replyto" value="email" />
+          <form class="card contact-form reveal" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="4fa76495-c4ad-4d95-9de2-663d061870ec" />
+            <input type="hidden" name="subject" value="New portfolio contact enquiry" />
+            <input type="checkbox" name="botcheck" class="hidden-botcheck" tabindex="-1" autocomplete="off" />
             <label for="name">Name</label>
             <input id="name" name="name" type="text" placeholder="Your name" required />
 

@@ -650,6 +650,10 @@ a {
   font-weight: 600;
   color: #374151;
 }
+
+.hidden-botcheck {
+  display: none !important;
+}
 .popular-badge {
   display: inline-flex;
   margin-bottom: 10px;

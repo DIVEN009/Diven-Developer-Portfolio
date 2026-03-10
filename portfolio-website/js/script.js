@@ -80,8 +80,30 @@ const contactForm = document.querySelector('.contact-form');
 const formMessage = document.querySelector('.form-message');
 
 if (contactForm && formMessage) {
-  contactForm.addEventListener('submit', (event) => {
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
     formMessage.className = 'form-message success';
     formMessage.textContent = 'Sending your message...';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        formMessage.className = 'form-message success';
+        formMessage.textContent = 'Message sent successfully. I will get back to you soon.';
+        contactForm.reset();
+      } else {
+        formMessage.className = 'form-message error';
+        formMessage.textContent = 'Unable to send message right now. Please try WhatsApp.';
+      }
+    } catch (error) {
+      formMessage.className = 'form-message error';
+      formMessage.textContent = 'Network issue. Please try again or message on WhatsApp.';
+    }
   });
 }
