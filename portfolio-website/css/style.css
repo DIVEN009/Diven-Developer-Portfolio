@@ -854,6 +854,9 @@ body.dark-mode .whatsapp-float::after {
   color: var(--primary);
   border-color: #93c5fd;
   transform: translateY(-2px);
+}
+
+.whatsapp-float {
   position: fixed;
   right: 25px;
   bottom: 25px;
