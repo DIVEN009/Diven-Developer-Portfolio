@@ -6,8 +6,39 @@
   --muted: #6b7280;
   --border: #e5e7eb;
   --card-bg: #ffffff;
+  --alt-bg-surface: #f8fafc;
+  --header-bg: rgba(255, 255, 255, 0.88);
+  --header-border: rgba(229, 231, 235, 0.75);
+  --nav-link: #374151;
+  --hero-subtext: #4b5563;
+  --btn-secondary-bg: #eff6ff;
+  --btn-secondary-border: #bfdbfe;
+  --btn-secondary-text: #1d4ed8;
+  --mobile-nav-bg: rgba(255, 255, 255, 0.98);
+  --mobile-nav-border: #e5e7eb;
+  --menu-line: #111827;
   --shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
   --radius: 16px;
+}
+
+body.dark-mode {
+  --bg: #0b1220;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --border: #1f2937;
+  --card-bg: #111827;
+  --alt-bg-surface: #0f172a;
+  --header-bg: rgba(11, 18, 32, 0.92);
+  --header-border: rgba(31, 41, 55, 0.9);
+  --nav-link: #d1d5db;
+  --hero-subtext: #cbd5e1;
+  --btn-secondary-bg: #1e293b;
+  --btn-secondary-border: #334155;
+  --btn-secondary-text: #bfdbfe;
+  --mobile-nav-bg: rgba(11, 18, 32, 0.98);
+  --mobile-nav-border: #334155;
+  --menu-line: #e5e7eb;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -47,7 +78,7 @@ a {
 }
 
 .alt-bg {
-  background: #f8fafc;
+  background: var(--alt-bg-surface);
 }
 
 .section-title {
@@ -67,8 +98,8 @@ a {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.88);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.75);
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
 }
 
 .nav-wrapper {
@@ -127,8 +158,32 @@ a {
 
 .nav-links a {
   font-weight: 500;
-  color: #374151;
+  color: var(--nav-link);
   transition: color 0.25s ease;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+}
+
+.theme-toggle i {
+  color: var(--primary);
 }
 
 .nav-links a:hover,
@@ -146,7 +201,7 @@ a {
 .menu-toggle span {
   width: 26px;
   height: 2px;
-  background: #111827;
+  background: var(--menu-line);
   display: block;
   margin: 5px 0;
   transition: 0.25s ease;
@@ -179,7 +234,7 @@ a {
 
 .hero-subtext {
   font-size: clamp(1rem, 2.1vw, 1.15rem);
-  color: #4b5563;
+  color: var(--hero-subtext);
   max-width: 640px;
   margin-bottom: 24px;
 }
@@ -216,9 +271,65 @@ a {
 }
 
 .btn-secondary {
-  border-color: #bfdbfe;
-  background: #eff6ff;
-  color: #1d4ed8;
+  border-color: var(--btn-secondary-border);
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+}
+
+body.dark-mode .hero-card p,
+body.dark-mode .about-card p,
+body.dark-mode .tech-logo-item span,
+body.dark-mode .tech-list li,
+body.dark-mode .project-card p,
+body.dark-mode .service-card p,
+body.dark-mode .process-card p,
+body.dark-mode .pricing-highlights li,
+body.dark-mode .pricing-card ul,
+body.dark-mode .demo-links p,
+body.dark-mode .contact-info p,
+body.dark-mode .contact-links a,
+body.dark-mode .contact-form label,
+body.dark-mode .site-footer,
+body.dark-mode .footer-contact-links a {
+  color: #cbd5e1;
+}
+
+body.dark-mode .hero-metrics div,
+body.dark-mode .project-tech span,
+body.dark-mode .step-badge,
+body.dark-mode .project-badge,
+body.dark-mode .popular-badge,
+body.dark-mode .demo-links a {
+  background: #1e293b;
+  border-color: #334155;
+  color: #bfdbfe;
+}
+
+body.dark-mode .repo-line a,
+body.dark-mode .project-card a,
+body.dark-mode .template-card a {
+  color: #93c5fd;
+}
+
+body.dark-mode .hero-profile {
+  border-color: #334155;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+body.dark-mode .footer-contact-links a,
+body.dark-mode .footer-socials a {
+  border-color: #334155;
+}
+
+body.dark-mode .whatsapp-float::after {
+  background: #e5e7eb;
+  color: #0b1220;
 }
 
 .card {
@@ -967,13 +1078,18 @@ a {
     display: block;
   }
 
+  .theme-toggle {
+    padding: 7px 10px;
+    font-size: 0.9rem;
+  }
+
   .nav-links {
     position: absolute;
     top: 72px;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid #e5e7eb;
+    background: var(--mobile-nav-bg);
+    border-bottom: 1px solid var(--mobile-nav-border);
     display: none;
     flex-direction: column;
     padding: 14px 4%;

@@ -4,6 +4,43 @@ const navAnchors = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('main section[id]');
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 const hashNavAnchors = Array.from(navAnchors).filter((anchor) => anchor.getAttribute('href')?.startsWith('#'));
+const themeToggle = document.querySelector('.theme-toggle');
+const themeToggleIcon = themeToggle?.querySelector('i');
+const themeToggleText = themeToggle?.querySelector('span');
+const THEME_KEY = 'preferred-theme';
+
+const applyTheme = (theme) => {
+  const isDark = theme === 'dark';
+  document.body.classList.toggle('dark-mode', isDark);
+
+  if (themeToggle) {
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  if (themeToggleIcon) {
+    themeToggleIcon.classList.remove('fa-moon', 'fa-sun');
+    themeToggleIcon.classList.add(isDark ? 'fa-sun' : 'fa-moon');
+  }
+
+  if (themeToggleText) {
+    themeToggleText.textContent = isDark ? 'Light' : 'Dark';
+  }
+};
+
+const savedTheme = localStorage.getItem(THEME_KEY);
+const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+applyTheme(initialTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark-mode');
+    const nextTheme = isDark ? 'light' : 'dark';
+    localStorage.setItem(THEME_KEY, nextTheme);
+    applyTheme(nextTheme);
+  });
+}
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => {
