@@ -464,6 +464,23 @@ a {
   padding: 4px 9px;
 }
 
+.repo-line {
+  font-size: 0.86rem;
+  margin-bottom: 10px;
+  color: #4b5563;
+}
+
+.repo-line a {
+  color: #1d4ed8;
+  word-break: break-word;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .project-card a,
 .template-card a {
   color: var(--primary);
