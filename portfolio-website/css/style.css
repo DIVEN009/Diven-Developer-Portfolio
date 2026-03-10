@@ -162,10 +162,11 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+  font-size: clamp(2.8rem, 4vw, 3.2rem);
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .hero-subtext {
@@ -325,6 +326,25 @@ a {
   margin-bottom: 8px;
 }
 
+.project-card.featured-project {
+  grid-column: span 2;
+  border: 2px solid #93c5fd;
+}
+
+.project-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  background: #dbeafe;
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-bottom: 10px;
+}
+
 .project-card p,
 .service-card p {
   color: #4b5563;
@@ -394,6 +414,23 @@ a {
 .pricing-title {
   margin: 36px 0 18px;
   font-size: clamp(1.3rem, 2.3vw, 1.65rem);
+}
+
+.pricing-cta {
+  margin-top: 24px;
+  padding: 26px;
+  text-align: center;
+}
+
+.pricing-cta h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+}
+
+.pricing-cta p {
+  color: #4b5563;
+  max-width: 760px;
+  margin: 0 auto 14px;
 }
 
 .pricing-grid {
@@ -584,6 +621,31 @@ a {
   text-align: center;
 }
 
+.footer-socials {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.footer-socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #374151;
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--primary);
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -619,6 +681,10 @@ a {
 
   .hero-card {
     max-width: 540px;
+  }
+
+  .project-card.featured-project {
+    grid-column: auto;
   }
 }
 
