@@ -81,11 +81,7 @@ const formMessage = document.querySelector('.form-message');
 
 if (contactForm && formMessage) {
   contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
     formMessage.className = 'form-message success';
-    formMessage.textContent = 'Thanks! Your message has been captured. I will get back to you soon.';
-
-    contactForm.reset();
+    formMessage.textContent = 'Sending your message...';
   });
 }
