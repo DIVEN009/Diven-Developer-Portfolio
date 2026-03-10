@@ -366,6 +366,27 @@ a {
   color: #4b5563;
   margin-bottom: 14px;
 }
+.project-type {
+  color: #374151;
+  font-size: 0.92rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.project-tech span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1d4ed8;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  padding: 4px 9px;
+}
 
 .project-card a,
 .template-card a {
@@ -506,7 +527,7 @@ a {
 }
 
 .why-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .why-card {
@@ -524,6 +545,19 @@ a {
 }
 
 .why-card:hover {
+  transform: translateY(-4px);
+  border-color: #a7f3d0;
+}
+.proof-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.proof-card {
+  padding: 22px;
+  text-align: center;
+  font-weight: 600;
+  transition: transform 0.24s ease, border-color 0.24s ease;
+}
+.proof-card:hover {
   transform: translateY(-4px);
   border-color: #a7f3d0;
 }
@@ -618,6 +652,16 @@ a {
   font-weight: 600;
   color: #374151;
 }
+.popular-badge {
+  display: inline-flex;
+  margin-bottom: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  background: #dbeafe;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
 
 .contact-form input,
 .contact-form textarea {
@@ -663,6 +707,14 @@ a {
   display: flex;
   justify-content: center;
   gap: 14px;
+}
+.footer-email {
+  margin-top: 8px;
+  color: #374151;
+}
+.footer-email a {
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .footer-socials a {
@@ -710,6 +762,9 @@ a {
   .why-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+    .proof-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
   .pricing-card.featured,
   .pricing-card.featured:hover {
@@ -766,6 +821,9 @@ a {
   .why-grid {
     grid-template-columns: 1fr;
   }
+    .proof-grid {
+      grid-template-columns: 1fr;
+    }
 
   .hero-actions {
     width: 100%;
