@@ -521,24 +521,21 @@ a {
   border-radius: 50%;
   background: #25d366;
   color: #ffffff;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
   z-index: 1000;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  animation: pulse 2.5s infinite;
+  transition: all 0.3s ease;
 }
 
-.whatsapp-float img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
 }
 
 .whatsapp-float:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
 }
 
 .whatsapp-float::after {
@@ -560,18 +557,6 @@ a {
 
 .whatsapp-float:hover::after {
   opacity: 1;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5), 0 12px 25px rgba(0, 0, 0, 0.15);
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0), 0 12px 25px rgba(0, 0, 0, 0.15);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 12px 25px rgba(0, 0, 0, 0.15);
-  }
 }
 
 .contact-layout {
