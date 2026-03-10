@@ -308,6 +308,13 @@ a {
   object-fit: contain;
 }
 
+.tech-item i {
+  width: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #10b981;
+}
+
 .tech-item:hover,
 .template-card:hover,
 .service-card:hover {
