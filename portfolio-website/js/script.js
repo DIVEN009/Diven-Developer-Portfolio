@@ -9,9 +9,31 @@ if (menuToggle && navLinks) {
   });
 }
 
-navAnchors.forEach((anchor) => {
-  anchor.addEventListener('click', () => {
-    navLinks.classList.remove('open');
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', (event) => {
+    const targetId = anchor.getAttribute('href');
+    if (!targetId || targetId === '#') {
+      return;
+    }
+
+    const targetElement = document.querySelector(targetId);
+    if (!targetElement) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerOffset + 1;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth',
+    });
+
+    if (navLinks) {
+      navLinks.classList.remove('open');
+    }
   });
 });
 
