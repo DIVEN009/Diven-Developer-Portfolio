@@ -557,10 +557,17 @@ a {
   font-size: clamp(1.3rem, 2.5vw, 1.7rem);
 }
 
-.pricing-cta p {
-  color: #4b5563;
-  max-width: 760px;
+.pricing-highlights {
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  max-width: 380px;
   margin: 0 auto 14px;
+}
+
+.pricing-highlights li {
+  color: #374151;
+  font-weight: 600;
 }
 
 .pricing-grid {
@@ -650,43 +657,42 @@ a {
   font-size: 0.95rem;
 }
 
+.consultation-btn {
+  margin-top: 8px;
+}
+
 .why-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.why-card {
-  padding: 20px;
-  font-weight: 600;
+.footer-contact-links {
+  margin-top: 10px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footer-contact-links a {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  transition: transform 0.24s ease, border-color 0.24s ease;
-}
-
-.why-card span {
-  color: var(--accent);
-  font-weight: 800;
-}
-
-.why-card:hover {
-  transform: translateY(-4px);
-  border-color: #a7f3d0;
-}
-.proof-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-.proof-card {
-  padding: 22px;
-  text-align: center;
+  gap: 8px;
+  color: #374151;
   font-weight: 600;
-  transition: transform 0.24s ease, border-color 0.24s ease;
-}
-.proof-card:hover {
-  transform: translateY(-4px);
-  border-color: #a7f3d0;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.whatsapp-float {
+.footer-contact-links a i {
+  color: var(--primary);
+}
+
+.footer-contact-links a:hover {
+  color: var(--primary);
+  border-color: #93c5fd;
+  transform: translateY(-2px);
   position: fixed;
   right: 25px;
   bottom: 25px;
