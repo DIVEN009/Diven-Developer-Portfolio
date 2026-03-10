@@ -613,6 +613,37 @@ a {
   font-weight: 600;
 }
 
+.demo-links {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.demo-links p {
+  width: 100%;
+  margin: 0;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.demo-links a {
+  display: inline-block;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  background: #eef2ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #c7d2fe;
+}
+
+.demo-links a:hover {
+  background: #dbeafe;
+}
+
 .pricing-note {
   margin-top: 16px;
   color: #6b7280;
