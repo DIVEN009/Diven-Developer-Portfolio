@@ -102,6 +102,14 @@ a {
   box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
 }
 
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.2);
+}
+
 .brand-text {
   display: inline-flex;
   align-items: center;
@@ -224,6 +232,14 @@ a {
   padding: 26px;
   display: grid;
   gap: 14px;
+}
+
+.hero-profile {
+  width: 86px;
+  height: 86px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid #dbeafe;
 }
 
 .hero-card h3 {
