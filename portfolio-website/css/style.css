@@ -529,8 +529,10 @@ a {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.whatsapp-float i {
-  font-size: 1.55rem;
+.whatsapp-float img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 
 .whatsapp-float:hover {
