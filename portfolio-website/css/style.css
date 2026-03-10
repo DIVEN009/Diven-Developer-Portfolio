@@ -621,25 +621,23 @@ a {
   margin-bottom: 14px;
 }
 
-.contact-info ul {
-  list-style: none;
-  display: grid;
-  gap: 10px;
-}
-
-.contact-info li {
+.contact-links a,
+.contact-links span {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 12px;
   color: #374151;
+  font-weight: 500;
 }
 
-.contact-info i {
+.contact-links a:hover {
   color: var(--primary);
 }
 
-.contact-info a:hover {
+.contact-links i {
   color: var(--primary);
+  font-size: 18px;
 }
 
 .contact-form {
