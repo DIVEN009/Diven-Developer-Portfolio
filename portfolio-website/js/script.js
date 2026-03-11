@@ -207,6 +207,29 @@ if (quoteForm) {
   }
 }
 
+/* ===== TAB SWITCHING ===== */
+const tabBtns = document.querySelectorAll('.tab-btn');
+
+if (tabBtns.length > 0) {
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+
+      tabBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.tab-pane').forEach((pane) => {
+        pane.classList.remove('active');
+      });
+
+      const targetPane = document.getElementById('tab-' + target);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    });
+  });
+}
+
 if (contactForm && formMessage) {
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
