@@ -574,7 +574,6 @@ body.dark-mode .whatsapp-float::after {
   border: none;
   box-shadow: none;
   perspective: 1400px;
-  cursor: pointer;
 }
 
 .project-card-inner {
@@ -767,13 +766,6 @@ body.dark-mode .template-hero-preview {
   box-shadow: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .project-card.flip-card:hover .project-card-inner,
-  .project-card.flip-card:focus-within .project-card-inner {
-    transform: rotateY(180deg);
-  }
-}
-
 .project-card h3,
 .template-card h3,
 .service-card h3 {
@@ -793,22 +785,38 @@ body.dark-mode .template-hero-preview {
 
 .featured-project {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .featured-project h3 {
-  font-size: 1.9rem;
+  font-size: 2rem;
   margin-bottom: 15px;
 }
 
 .project-card.featured-project {
   grid-column: 1 / -1;
-  width: 88%;
+  width: 100%;
+  max-width: 900px;
   margin: 0 auto;
   border: 2px solid #93c5fd;
 }
 
 .project-buttons {
+  display: flex;
   justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.featured-project .project-content {
+  align-items: center;
+}
+
+.featured-project .project-tech {
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .demo-btn,
@@ -837,6 +845,32 @@ body.dark-mode .template-hero-preview {
 .repo-btn:hover {
   background: #dbeafe;
   transform: translateY(-2px);
+}
+
+.flip-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--btn-secondary-border);
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.flip-toggle-btn:hover {
+  transform: translateY(-2px);
+}
+
+.flip-back-btn {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
 }
 
 .project-badge {
@@ -907,6 +941,12 @@ body.dark-mode .repo-line {
 body.dark-mode .project-back-label {
   background: #1e293b;
   color: #bfdbfe;
+}
+
+body.dark-mode .flip-back-btn {
+  border-color: #334155;
+  color: #e5e7eb;
+  background: #111827;
 }
 
 .project-card a,

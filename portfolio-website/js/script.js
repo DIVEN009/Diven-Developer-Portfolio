@@ -139,11 +139,10 @@ const revealObserver = new IntersectionObserver(
 revealElements.forEach((element) => revealObserver.observe(element));
 
 if (flipCards.length > 0) {
-  const hoverMediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const flipToggles = document.querySelectorAll('.flip-toggle-btn');
 
   const setCardFlipState = (card, isFlipped) => {
     card.classList.toggle('is-flipped', isFlipped);
-    card.setAttribute('aria-pressed', String(isFlipped));
   };
 
   const closeOtherCards = (activeCard) => {
@@ -154,23 +153,12 @@ if (flipCards.length > 0) {
     });
   };
 
-  flipCards.forEach((card) => {
-    card.addEventListener('click', (event) => {
-      if (hoverMediaQuery.matches || event.target.closest('a, button')) {
+  flipToggles.forEach((toggle) => {
+    toggle.addEventListener('click', (event) => {
+      const card = event.currentTarget.closest('.project-card.flip-card');
+      if (!card) {
         return;
       }
-
-      const willFlip = !card.classList.contains('is-flipped');
-      closeOtherCards(card);
-      setCardFlipState(card, willFlip);
-    });
-
-    card.addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter' && event.key !== ' ') {
-        return;
-      }
-
-      event.preventDefault();
 
       const willFlip = !card.classList.contains('is-flipped');
       closeOtherCards(card);
@@ -179,17 +167,11 @@ if (flipCards.length > 0) {
   });
 
   document.addEventListener('click', (event) => {
-    if (hoverMediaQuery.matches || event.target.closest('.project-card.flip-card')) {
+    if (event.target.closest('.project-card.flip-card')) {
       return;
     }
 
     flipCards.forEach((card) => setCardFlipState(card, false));
-  });
-
-  hoverMediaQuery.addEventListener('change', () => {
-    if (hoverMediaQuery.matches) {
-      flipCards.forEach((card) => setCardFlipState(card, false));
-    }
   });
 }
 
