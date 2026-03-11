@@ -58,6 +58,26 @@ body {
   line-height: 1.6;
 }
 
+.hero .hero-content,
+.hero .hero-card {
+  animation: heroFadeUp 0.75s ease both;
+}
+
+.hero .hero-card {
+  animation-delay: 0.12s;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -286,6 +306,10 @@ a {
 
 .btn-primary:hover {
   box-shadow: 0 15px 25px rgba(37, 99, 235, 0.34);
+}
+
+.hero .btn-primary {
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
@@ -1204,6 +1228,156 @@ body.dark-mode .flip-back-btn {
   transform: translateY(-4px);
 }
 
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.stat-card {
+  padding: 22px;
+  text-align: center;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.transformation-card {
+  padding: 24px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.transformation-card h3 {
+  margin-bottom: 10px;
+}
+
+.testimonials-grid {
+  margin-top: 22px;
+}
+
+.testimonial-card {
+  padding: 22px;
+}
+
+.testimonial-card p {
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.testimonial-card span {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.quote-form {
+  padding: 24px;
+  display: grid;
+  gap: 10px;
+  max-width: 760px;
+}
+
+.quote-form label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.quote-form input[type="text"],
+.quote-form input[type="email"],
+.quote-form input[type="tel"],
+.quote-form textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 11px 12px;
+  font: inherit;
+  color: var(--text);
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quote-form input[type="text"]:focus,
+.quote-form input[type="email"]:focus,
+.quote-form input[type="tel"]:focus,
+.quote-form textarea:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+.quote-options {
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 8px;
+}
+
+.quote-options .option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+}
+
+.quote-options .option input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.quote-options-helper {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.required-mark {
+  color: #ef4444;
+}
+
+.quote-form .btn {
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.map-embed {
+  overflow: hidden;
+}
+
+.map-embed iframe {
+  width: 100%;
+  min-height: 320px;
+  border: 0;
+}
+
+body.dark-mode .quote-form label,
+body.dark-mode .quote-options .option,
+body.dark-mode .testimonial-card p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .quote-form input[type="text"],
+body.dark-mode .quote-form input[type="email"],
+body.dark-mode .quote-form input[type="tel"],
+body.dark-mode .quote-form textarea {
+  background: #0f172a;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
 .footer-contact-links {
   margin-top: 10px;
   display: flex;
@@ -1446,6 +1620,7 @@ body.dark-mode .flip-back-btn {
   .tech-categories,
   .tech-logo-grid,
   .cards-grid,
+  .stats-grid,
   .project-grid,
   .three-col,
   .services-grid,
@@ -1463,6 +1638,10 @@ body.dark-mode .flip-back-btn {
 
   .hero-card {
     max-width: 540px;
+  }
+
+  .transformation-card {
+    grid-template-columns: 1fr;
   }
 
   .project-card.featured-project {
@@ -1573,6 +1752,10 @@ body.dark-mode .flip-back-btn {
 
   .section {
     padding: 50px 20px;
+  }
+
+  .quote-form {
+    padding: 18px;
   }
 }
 

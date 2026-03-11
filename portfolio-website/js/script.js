@@ -182,6 +182,30 @@ if (yearEl) {
 
 const contactForm = document.querySelector('.contact-form');
 const formMessage = document.querySelector('.form-message');
+const quoteForm = document.querySelector('.quote-form');
+
+if (quoteForm) {
+  const needsCheckboxes = quoteForm.querySelectorAll('input[name="Needs"]');
+
+  if (needsCheckboxes.length > 0) {
+    const validateNeedsSelection = () => {
+      const hasSelection = Array.from(needsCheckboxes).some((checkbox) => checkbox.checked);
+      const validationMessage = hasSelection ? '' : 'Please select what you need';
+
+      needsCheckboxes.forEach((checkbox) => {
+        checkbox.setCustomValidity(validationMessage);
+      });
+    };
+
+    needsCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', validateNeedsSelection);
+    });
+
+    quoteForm.addEventListener('submit', () => {
+      validateNeedsSelection();
+    });
+  }
+}
 
 if (contactForm && formMessage) {
   contactForm.addEventListener('submit', async (event) => {
