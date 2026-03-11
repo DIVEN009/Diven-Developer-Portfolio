@@ -121,7 +121,7 @@ if (hashNavAnchors.length > 0 && currentPage === 'index.html') {
   });
 }
 
-const revealElements = document.querySelectorAll('.reveal');
+const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
 const flipCards = document.querySelectorAll('.project-card.flip-card');
 
 const revealObserver = new IntersectionObserver(
@@ -137,6 +137,36 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealElements.forEach((element) => revealObserver.observe(element));
+
+/* ===== COUNT-UP STATS ===== */
+const countUpEls = document.querySelectorAll('[data-countup]');
+
+if (countUpEls.length > 0) {
+  const countObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.countup, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1200;
+        const step = Math.ceil(duration / target);
+        let current = 0;
+        const timer = setInterval(() => {
+          current += 1;
+          el.textContent = current + suffix;
+          if (current >= target) {
+            el.textContent = target + suffix;
+            clearInterval(timer);
+          }
+        }, step);
+        observer.unobserve(el);
+      });
+    },
+    { threshold: 0.5 }
+  );
+  countUpEls.forEach((el) => countObserver.observe(el));
+}
 
 if (flipCards.length > 0) {
   const flipToggles = document.querySelectorAll('.flip-toggle-btn');
