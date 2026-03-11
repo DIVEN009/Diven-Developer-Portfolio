@@ -2160,9 +2160,17 @@ body.dark-mode .mockup-frame::before {
 .featured-project-card .featured-project-img {
   width: 100%;
   flex: 1;
+  min-height: 200px;
   object-fit: cover;
+  object-position: center;
   display: block;
-  min-height: 0;
+  border-radius: 0;
+}
+
+@media (min-width: 640px) {
+  .featured-project-card .featured-project-img {
+    min-height: 320px;
+  }
 }
 
 /* Template carousel mockup */
@@ -2248,23 +2256,7 @@ body.dark-mode .mockup-frame::before {
   }
 }
 
-.featured-project-img {
-  width: 100%;
-  flex: 1;
-  min-height: 200px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border-radius: 0;
-}
 
-@media (min-width: 640px) {
-  .featured-project-img {
-    min-height: 320px;
-  }
-}
-
-/* Template carousel: mockup wraps image */
 .industry-demo-card .mockup-frame {
   width: 100%;
 }
