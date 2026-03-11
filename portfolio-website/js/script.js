@@ -43,7 +43,8 @@ if (themeToggle) {
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
   });
 }
 
@@ -51,6 +52,10 @@ navAnchors.forEach((anchor) => {
   anchor.addEventListener('click', () => {
     if (navLinks) {
       navLinks.classList.remove('open');
+    }
+
+    if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'false');
     }
   });
 });
@@ -88,6 +93,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
     if (navLinks) {
       navLinks.classList.remove('open');
+    }
+
+    if (menuToggle) {
+      menuToggle.setAttribute('aria-expanded', 'false');
     }
   });
 });

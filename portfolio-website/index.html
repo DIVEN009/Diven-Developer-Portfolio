@@ -27,21 +27,23 @@
           <img src="images/Logo.png" alt="Diven Saini logo" class="brand-logo" />
           <span class="brand-text">Diven<span>.</span></span>
         </a>
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav class="nav-links">
+        <nav class="nav-links" id="site-nav">
           <a href="index.html">Home</a>
           <a href="templates.html">Templates</a>
           <a href="pricing.html">Pricing</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
-          <i class="fa-solid fa-moon" aria-hidden="true"></i>
-          <span>Dark</span>
-        </button>
+        <div class="nav-actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <span>Dark</span>
+          </button>
+          <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </header>
 
