@@ -625,6 +625,7 @@ body.dark-mode .whatsapp-float::after {
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 
 .project-front {
@@ -644,6 +645,7 @@ body.dark-mode .whatsapp-float::after {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   border-bottom: 1px solid var(--border);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .project-card img {
@@ -670,6 +672,7 @@ body.dark-mode .whatsapp-float::after {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   border-bottom: 1px solid var(--border);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .template-content {
@@ -789,6 +792,18 @@ body.dark-mode .template-hero-preview {
   transform: none;
   border-color: transparent;
   box-shadow: none;
+}
+
+.project-card.flip-card:hover .project-face {
+  transform: translateY(-6px);
+  border-color: #bfdbfe;
+  box-shadow: 0 20px 42px rgba(37, 99, 235, 0.14);
+}
+
+.project-card:hover .project-preview,
+.template-card:hover .template-preview {
+  transform: scale(1.03);
+  filter: brightness(0.97);
 }
 
 .project-card h3,
@@ -1240,14 +1255,18 @@ body.dark-mode .flip-back-btn {
 
 .stat-card strong {
   display: block;
-  font-size: 1.8rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   color: var(--primary);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .stat-card span {
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .transformation-card {
@@ -1258,6 +1277,8 @@ body.dark-mode .flip-back-btn {
 
 .transformation-card h3 {
   margin-bottom: 10px;
+  font-size: 1.28rem;
+  letter-spacing: -0.01em;
 }
 
 .transformation-grid {
@@ -1300,6 +1321,7 @@ body.dark-mode .flip-back-btn {
 
 .transformation-list li {
   font-weight: 500;
+  font-size: 1rem;
 }
 
 .transformation-preview {
