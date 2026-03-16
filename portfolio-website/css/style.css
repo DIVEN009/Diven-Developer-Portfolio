@@ -341,11 +341,16 @@ body.dark-mode .hero-metrics div,
 body.dark-mode .project-tech span,
 body.dark-mode .step-badge,
 body.dark-mode .project-badge,
-body.dark-mode .popular-badge,
-body.dark-mode .demo-links a {
+body.dark-mode .popular-badge {
   background: #1e293b;
   border-color: #334155;
   color: #bfdbfe;
+}
+
+body.dark-mode .demo-links a {
+  background: none;
+  border: none;
+  color: #93c5fd;
 }
 
 body.dark-mode .repo-line a,
@@ -1180,7 +1185,7 @@ body.dark-mode .flip-back-btn {
   margin-top: 12px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 4px 10px;
   align-items: center;
 }
 
@@ -1193,18 +1198,35 @@ body.dark-mode .flip-back-btn {
 }
 
 .demo-links a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   color: #2563eb;
   font-weight: 600;
-  text-decoration: none;
-  background: #eef2ff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid #c7d2fe;
+  font-size: 0.88rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+}
+
+.demo-links a::after {
+  content: "\2197";
+  font-size: 0.75rem;
 }
 
 .demo-links a:hover {
-  background: #dbeafe;
+  color: #1d4ed8;
+  background: none;
+}
+
+/* Separator between demo links and Get Started in pricing-card */
+.pricing-card .qr-plan-btn {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
 
 .pricing-note {
@@ -1527,6 +1549,12 @@ body.dark-mode .flip-back-btn {
 
 #request-quote .section-title {
   font-size: clamp(1.9rem, 3.2vw, 2.45rem);
+  text-align: center;
+}
+
+#request-quote .quote-form {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .quote-form label {
