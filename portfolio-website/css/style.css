@@ -278,6 +278,16 @@ a {
   margin-bottom: 24px;
 }
 
+.hero-price-note {
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.hero-offer-points {
+  margin-bottom: 24px;
+  max-width: 620px;
+}
+
 .hero-actions {
   display: flex;
   gap: 12px;
